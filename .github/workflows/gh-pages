@@ -1,4 +1,4 @@
-name: Deploy examples to gh-pages
+name: Deploy site to gh-pages
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-deploy:
-    name: "Build and Deploy Examples to gh-pages"
+    name: "Build and Deploy Site to gh-pages"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: "15.x"
       - run: npm install
-      - name: Build Examples
+      - name: Build Site
         run: npm run build
         env:
           GOOGLE_MAPS_API_KEY: "${{secrets.GOOGLE_MAPS_API_KEY}}"
