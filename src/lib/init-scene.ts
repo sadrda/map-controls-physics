@@ -11,7 +11,7 @@ const Engine = Matter.Engine,
   Body = Matter.Body,
   Composites = Matter.Composites;
 
-const WALL_SIZE = 512; // keep objects in viewport
+const WALL_SIZE = 1024; // keep objects in viewport
 const LAT_BOUNDS = 80; // dont go to poles
 const VIWEPORT_ZOOM_BUFFER = 50; // dont trigger a zoom change on viewport edges
 
@@ -233,6 +233,16 @@ export async function initScene(canvas: HTMLCanvasElement) {
     Body.setPosition(wallBot, {
       x: window.innerWidth / 2,
       y: window.innerHeight + WALL_SIZE / 2,
+    });
+
+    Body.setPosition(handle, {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
+    });
+
+    Body.setPosition(collider, {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
     });
   }
 }
