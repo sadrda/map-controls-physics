@@ -59,8 +59,8 @@ export async function initScene(canvas: HTMLCanvasElement) {
       const label = i === 0 ? "handle" : "collider";
 
       return Bodies.circle(
-        x,
-        y,
+        window.innerWidth / 2,
+        window.innerHeight / 2,
         segmentSize,
         {
           label,
@@ -130,10 +130,7 @@ export async function initScene(canvas: HTMLCanvasElement) {
 
   let colliderSide = null;
   Events.on(engine, "afterUpdate", () => {
-    if (
-      typeof mouse.position.x === "undefined" ||
-      typeof mouse.position.y === "undefined"
-    ) {
+    if (!mouse.position.x && !mouse.position.y) {
       return;
     }
 
