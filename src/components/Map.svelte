@@ -16,6 +16,14 @@
       disableDefaultUI: true,
       draggable: false,
       zoomControl: false,
+      restriction: {
+        latLngBounds: {
+          north: 80,
+          south: -80,
+          east: 180,
+          west: -180,
+        },
+      },
     });
 
     mapStore.set(map);
