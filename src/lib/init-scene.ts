@@ -71,8 +71,11 @@ export async function initScene(newCanvas: HTMLCanvasElement) {
   Composite.add(engine.world, [chain, wallBot, wallLeft, wallRight, wallTop]);
   Render.run(render);
 
-  const runner = Runner.create();
-  Runner.run(runner, engine);
+  // interval instead of raf loop because matterjs
+  // render speed depends on monitor refresh interval
+  setInterval(() => {
+    Engine.update(engine, 7);
+  }, 7);
 
   handleCollision();
 
